@@ -1,0 +1,10 @@
+n = int(input("Enter number of elements: "))
+arr = list(map(int, input("Enter product IDs: ").split()))
+seen = set()
+duplicates = set()
+for x in arr:
+    if x in seen:
+        duplicates.add(x)
+    else:
+        seen.add(x)
+print("Duplicate product IDs:", *duplicates)

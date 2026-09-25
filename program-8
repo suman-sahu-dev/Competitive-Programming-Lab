@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char code[50];
+    int valid = 1;
+    int i;
+
+    printf("Enter book code: ");
+    scanf("%49s", code);
+
+    if (strlen(code) != 13) {
+        valid = 0;
+    }
+
+    // First 3 characters must be uppercase letters
+    for (i = 0; i < 3 && valid; i++) {
+        if (!(code[i] >= 'A' && code[i] <= 'Z')) {
+            valid = 0;
+        }
+    }
+
+    // 4th character must be '-'
+    if (code[3] != '-') {
+        valid = 0;
+    }
+
+    // Characters 5 to 9 must be digits
+    for (i = 4; i < 9 && valid; i++) {
+        if (!isdigit((unsigned char)code[i])) {
+            valid = 0;
+        }
+    }
+
+    // 10th character must be '-'
+    if (code[9] != '-') {
+        valid = 0;
+    }
+
+    // Last 3 characters must be digits
+    for (i = 10; i < 13 && valid; i++) {
+        if (!isdigit((unsigned char)code[i])) {
+            valid = 0;
+        }
+    }
+
+    if (valid)
+        printf("Valid Book Code\n");
+    else
+        printf("Invalid Book Code\n");
+
+    return 0;
+}
