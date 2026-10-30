@@ -29,7 +29,7 @@ int main()
         {
             low = mid + 1;
         }
-      }
+    }
     printf("%d\n", found);
     return 0;
 }

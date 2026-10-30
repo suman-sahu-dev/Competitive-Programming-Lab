@@ -3,7 +3,6 @@ int main() {
     int n, i, below = 0, position = 0;
     float attendance[100], threshold;
     float lowest, sum = 0, average;
-
     printf("Enter number of students: ");
     scanf("%d", &n);
 
